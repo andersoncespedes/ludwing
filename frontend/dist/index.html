@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">ContaWeb</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        <div class="mx-auto">
+                            <table class="table table-sm" id="response1">
+                                <thead>
+                                  <tr>
+                                    <th>Numero de documento</th>
+                                            <th>Nombre de empresa</th>
+                                            <th>Tipo documento</th>
+                                            <th>Valor base</th>
+                                            <th>Valor impuestos final</th>
+                                            <th>Estado del documento</th>
+                                            <th>Fecha de emision</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 ">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body mx-auto">Buscar documento</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <button type="button" class="btn btn-primary mx-auto" data-bs-toggle="modal" data-bs-target="#enpoint1">Ver Detalles</button>
+                                        <div class="modal fade" id="enpoint1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header mx-auto">
+                                              <form class="d-flex full-width mt-6 row align-items-center" id="myFormEndpoint1">
+                                                <div class="mb-3 position-relative">
+                                                  <label for="exampleInputEmail1" class="form-label text-black ">Numeracion de Empresa</label>
+                                                  <input type="text" class="form-control" id="InputNumeracion" aria-describedby="emailHelp">
+                                                  <div id="text" class="form-text text-black" >Ingresa la numeracion del documento.</div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#enpoint1">Buscar</button>
+                                              </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body mx-auto">Registrar Documento</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <button type="button" class="btn btn-success mx-auto" data-bs-toggle="modal" data-bs-target="#enpoint2">Ver Detalles</button>
+                                        <div class="modal fade" id="enpoint2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header mx-auto">
+                                              <form class="d-flex full-width mt-6 row align-items-center" id="myFormEndpoint2">
+                                                <div class="mb-3 position-relative">
+                                                  <label for="empresa" class="text-black">Numeraciones:</label>
+                                                  <select class="form-select" aria-label="Default select example" name="Numeraciones" id="NumeracionesSelect">
+                                                    
+                                                  </select>
+                                                  <label for="estado" class="text-black">Estado</label>
+                                                  <select class="form-select" aria-label="Default select example" name="estado" id="estado">
+                                                    <option selected>Selecciona una</option>
+                                                    <option value="1">Correcto</option>
+                                                    <option value="2">Validandose</option>
+                                                    <option value="3">Validado</option>
+                                                    <option value="4">Invalidado</option>
+                                                    <option value="5">Incorrecto</option>
+                                                    <option value="6">Caducado</option>
+                                                    <option value="7">Excede limite</option>
+                                                  </select>
+                                                  <label for="fecha" class="text-black">Numero:</label>
+                                                  <input type="number" id="numero" class="form-control">
+                                                  <label for="fecha" class="text-black">Fecha:</label>
+                                                  <input type="date" id="fecha" class="form-control">
+                                                  <label for="base" class="text-black">Base:</label>
+                                                  <input type="number" class="form-control" step="0.01" name="base" id="base" aria-describedby="base">
+                                                  <label for="base" class="text-black">Impuestos:</label>
+                                                  <input type="number" class="form-control" step="0.01" name="impuestos" id="impuestos" aria-describedby="impuestos">
+                                                  <div id="text" class="form-text text-black" >Crea un documento de empresa.</div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success">Crear Documento</button>
+                                              </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body mx-auto">Actualizar documento</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <button type="button" class="btn btn-warning mx-auto" data-bs-toggle="modal" data-bs-target="#enpoint3">Ver Detalles</button>
+                                        <div class="modal fade" id="enpoint3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header mx-auto">
+                                                <form class="d-flex full-width mt-6 row align-items-center" id="myFormEndpoint3">
+                                                    <div class="mb-3 position-relative">
+                                                      <label for="empresa" class="text-black">Numeracion para actualizar:</label>
+                                                      <select class="form-select" aria-label="Default select example" name="documentosSelect" id="documentosSelect">
+                                                    
+                                                      </select>
+                                                      <label for="estado2" class="text-black">Estado</label>
+                                                      <select class="form-select" aria-label="Default select example" name="numeracion" id="newestado">
+                                                        <option selected>Selecciona una</option>
+                                                        <option value="1">Correcto</option>
+                                                        <option value="2">Validandose</option>
+                                                        <option value="3">Validado</option>
+                                                        <option value="4">Invalidado</option>
+                                                        <option value="5">Incorrecto</option>
+                                                        <option value="6">Caducado</option>
+                                                        <option value="7">Excede limite</option>
+                                                      </select>
+                                                      <label for="fecha2" class="text-black">Nueva fecha:</label>
+                                                      <input type="date" id="fecha2" class="form-control">
+                                                      <label for="base2" class="text-black">Nuevo base:</label>
+                                                      <input type="number" class="form-control" step="0.01" name="base" id="base2" aria-describedby="base">
+                                                      <label for="impuestos2" class="text-black">Nuevo impuesto:</label>
+                                                      <input type="number" class="form-control" step="0.01" name="impuestos2" id="impuestos2" aria-describedby="impuestos">
+                                                      <div id="text" class="form-text text-black" >Crea un documento de empresa.</div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-warning">Actualizar Documento</button>
+                                                  </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body mx-auto">Eliminar documento</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <button type="button" class="btn btn-danger mx-auto" data-bs-toggle="modal" data-bs-target="#enpoint4">Ver Detalles</button>
+                                        <div class="modal fade" id="enpoint4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header mx-auto">
+                                              <form class="d-flex full-width mt-6 row align-items-center" id="myFormEndpoint4">
+                                                <div class="mb-3 position-relative">
+                                                    <label for="empresa" class="text-black">Elige una factura:</label>
+                                                    <select class="form-select" aria-label="Default select example" name="documentosSelect" id="deleteSelect">
+                                                    
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-danger">Eliminar Documento</button>
+                                              </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Numero de documento</th>
+                                            <th>Nombre de empresa</th>
+                                            <th>Tipo documento</th>
+                                            <th>Valor base</th>
+                                            <th>Valor impuestos final</th>
+                                            <th>Estado del documento</th>
+                                            <th>Fecha de emision</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Numero de documento</th>
+                                            <th>Nombre de empresa</th>
+                                            <th>Tipo documento</th>
+                                            <th>Valor base</th>
+                                            <th>Valor impuestos final</th>
+                                            <th>Estado del documento</th>
+                                            <th>Fecha de emision</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <th>Numero de documento</th>
+                                            <th>Nombre de empresa</th>
+                                            <th>Tipo documento</th>
+                                            <th>Valor base</th>
+                                            <th>Valor impuestos final</th>
+                                            <th>Estado del documento</th>
+                                            <th>Fecha de emision</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
